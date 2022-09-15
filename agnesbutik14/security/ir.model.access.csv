@@ -1,0 +1,9 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_agnesbutik14_kelompokbarang,access.agnesbutik14.kelompokbarang,model_agnesbutik14_kelompokbarang,,1,1,1,1
+access_agnesbutik14_barang,access.agnesbutik14.barang,model_agnesbutik14_barang,,1,1,1,1
+access_agnesbutik14_karyawan,access.agnesbutik14.karyawan,model_agnesbutik14_karyawan,,1,1,1,1
+access_agnesbutik14_kasir,access.agnesbutik14.kasir,model_agnesbutik14_kasir,,1,1,1,1
+access_agnesbutik14_supplier,access.agnesbutik14.supplier,model_agnesbutik14_supplier,,1,1,1,1
+access_agnesbutik14_penjualan,access.agnesbutik14.penjualan,model_agnesbutik14_penjualan,,1,1,1,1
+access_agnesbutik14_detailpenjualan,access.agnesbutik14.detailpenjualan,model_agnesbutik14_detailpenjualan,,1,1,1,1
+access_agnesbutik14_barangdatang,access.agnesbutik14.barangdatang,model_agnesbutik14_barangdatang,,1,1,1,1

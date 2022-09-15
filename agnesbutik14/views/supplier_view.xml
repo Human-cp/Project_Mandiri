@@ -1,0 +1,54 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    
+    <!-- agnesbutik14.supplier tree view -->
+    <record id="agnesbutik14_supplier_view_tree" model="ir.ui.view">
+        <field name="name">Daftar Supplier</field>
+        <field name="model">agnesbutik14.supplier</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="alamat"/>
+                <field name="no_telp"/>
+                <field name="barang_id"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- agnesbutik14.supplier form view -->
+    <record id="agnesbutik14_supplier_view_form" model="ir.ui.view">
+        <field name="name">Form Supplier</field>
+        <field name="model">agnesbutik14.supplier</field>
+        <field name="arch" type="xml">
+            <form string="">
+                <sheet>
+                    <group>
+                       <field name="name"/>
+                       <field name="alamat"/>
+                       <field name="no_telp"/>  
+                    </group>
+
+                    <group name="produk" string="Produk">
+                        <field name="barang_id"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- agnesbutik14.supplier action window -->
+    <record id="agnesbutik14_supplier_action" model="ir.actions.act_window">
+        <field name="name">Daftar Supplier</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">agnesbutik14.supplier</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- This Menu Item must have a parent and an action -->
+    <menuitem id="agnesbutik14_supplier_menu_act" 
+              name="Supplier" 
+              parent="agnesbutik14_menu_root" 
+              action="agnesbutik14_supplier_action" 
+              sequence="20"/>
+
+</odoo>

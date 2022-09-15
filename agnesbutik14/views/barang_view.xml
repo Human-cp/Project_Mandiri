@@ -1,0 +1,109 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <!-- agnesbutik14.barang kanban view -->
+    <record id="agnesbutik14_barang_view_kanban" model="ir.ui.view">
+        <field name="name">Daftar Barang</field>
+        <field name="model">agnesbutik14.barang</field>
+        <field name="arch" type="xml">
+            <kanban class="o_kanban_mobile">
+                    <field name="id"/>
+                    <field name="name"/>
+                    <field name="image" widget="image" class="oe_avatar"/>
+                    <field name="harga_jual"/>
+                    <field name="stock"/>
+                    <field name="kelompokbarang_id"/>
+                    <templates>
+                        <t t-name="kanban-box">
+                            <div t-attf-class="oe_kanban_global_click">
+                                <div class="o_kanban_record_top mb16">
+                                    <strong><span><t t-esc="record.name.value"/></span></strong>
+                                </div>
+                                <div class="o_kanban_image">
+                                    <img class="o_kanban_inner_pic" 
+                                        t-att-src= "kanban_image('agnesbutik14.barang','image',record.id.raw_value)"/>
+                                </div>
+                                <div class="o_kanban_record_right">
+                                    <div class="o_kanban_bottom">
+                                        <ul>
+                                            <li>
+                                                <span>Harga Jual : <t t-esc="record.harga_jual.value" string="Harga Jual : "/></span>
+                                            </li>
+                                            <li>
+                                                <span>Stock : <t t-esc="record.stock.value"/></span>
+                                            </li>
+                                            <li>
+                                                <span>Kelompok Barang : <t t-esc="record.kelompokbarang_id.value"/></span>
+                                            </li>
+                                        </ul>
+                                          
+                                          
+                                    </div>
+                                </div>
+                            </div>
+                        </t>
+                    </templates>
+                
+            </kanban>
+        </field>
+    </record>
+
+    
+    <!-- agnesbutik14.barang tree view -->
+    <record id="agnesbutik14_barang_view_tree" model="ir.ui.view">
+        <field name="name">Daftar Produk</field>
+        <field name="model">agnesbutik14.barang</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="harga_beli"/>
+                <field name="harga_jual"/>
+                <field name="stock"/>
+                <field name="kelompokbarang_id"/>
+                <field name="supplier_id"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- agnesbutik14.barang form view -->
+    <record id="agnesbutik14_barang_view_form" model="ir.ui.view">
+        <field name="name">Form Barang</field>
+        <field name="model">agnesbutik14.barang</field>
+        <field name="arch" type="xml">
+            <form string="">
+                <header>
+                    <button name="%(agnesbutik14.barang_datang_action_wizzard)d" type="action" string="Input Barang" class="btn btn-warning"/>
+                </header>
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="image" widget="image"/>
+                        <field name="harga_beli"/>
+                        <field name="harga_jual"/>
+                        <field name="stock"/>
+                    </group>
+
+                    <group name="kelompokproduk" string="Produk">
+                        <field name="kelompokbarang_id"/>
+                        <field name="supplier_id"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- agnesbutik14.barang action window -->
+    <record id="agnesbutik14_barang_action" model="ir.actions.act_window">
+        <field name="name">Daftar Barang</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">agnesbutik14.barang</field>
+        <field name="view_mode">tree,form,kanban</field>
+    </record>
+
+    <!-- This Menu Item must have a parent and an action -->
+    <menuitem id="agnesbutik14_barang_menu_act" 
+              name="Daftar Barang" 
+              parent="agnesbutik14_barang_menu_categ" 
+              action="agnesbutik14_barang_action" 
+              sequence="20"/>
+
+</odoo>

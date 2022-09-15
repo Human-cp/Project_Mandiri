@@ -1,0 +1,51 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <!-- agnesbutik14.kelompokbarang tree view -->
+    <record id="agnesbutik14_kelompokbarang_view_tree" model="ir.ui.view">
+        <field name="name">agnesbutik14.kelompokbarang.view.tree</field>
+        <field name="model">agnesbutik14.kelompokbarang</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="kode_produk"/>
+                <field name="jml_item"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- agnesbutik14.kelompokbarang form view -->
+    <record id="agnesbutik14_kelompokbarang_view_form" model="ir.ui.view">
+        <field name="name">agnesbutik14.kelompokbarang.view.form</field>
+        <field name="model">agnesbutik14.kelompokbarang</field>
+        <field name="arch" type="xml">
+            <form string="Kategori">
+                <sheet>
+                    <group name="produk" string="Produk">
+                        <field name="name"/>
+                        <field name="jml_item"/>
+                    </group>
+                    <group name="rak" string="Letak Produk">
+                        <field name="kode_produk"/>
+                         <field name="barang_ids"/> 
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    
+    <!-- agnesbutik14.kelompokbarang action window -->
+    <record id="agnesbutik14_kelompokbarang_action" model="ir.actions.act_window">
+        <field name="name">Kategori</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">agnesbutik14.kelompokbarang</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- This Menu Item must have a parent and an action -->
+    <menuitem id="agnesbutik14_kelompokbarang_menu_act" 
+              name="Kategori" 
+              parent="agnesbutik14_barang_menu_categ" 
+              action="agnesbutik14_kelompokbarang_action" 
+              sequence="10"/>
+
+</odoo>

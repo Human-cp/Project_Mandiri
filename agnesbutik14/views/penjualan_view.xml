@@ -1,0 +1,70 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    
+    <!-- agnesbutik14.penjualan tree view -->
+    <record id="model_name_view_tree" model="ir.ui.view">
+        <field name="name">List Penjualan</field>
+        <field name="model">agnesbutik14.penjualan</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="nama_pembeli"/>
+                <field name="tgl_penjualan"/>
+                <field name="total_bayar"/>
+                <field name="state"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- agnesbutik14.penjualan form view -->
+    <record id="agnesbutik14_penjualan_view_form" model="ir.ui.view">
+        <field name="name">Form Penjualan</field>
+        <field name="model">agnesbutik14.penjualan</field>
+        <field name="arch" type="xml">
+            <form string="Form Penjualan">
+                <header>
+                    <button name="action_confirm" type="object" string="Confirm" class="btn btn-info" states="draft"/>
+                    <button name="action_done" type="object" string="Done" class="btn btn-success" states="confirm" />
+                    <button name="action_cancel" type="object" string="Cancel" class="btn btn-warning" states="confirm" confirm="Anda yakin mengcancel?"/>
+                    <button name="action_draft" type="object" string="Balik ke draft" class="btn btn-danger" states="cancel" confirm="Anda yakin mengedit?"/>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,confirm,done"/>
+                </header>
+                <sheet>
+                    <group>
+                       <field name="name" attrs="{'readonly' : [('state', '!=', 'draft')]}"/>
+                       <field name="nama_pembeli" attrs="{'readonly' : [('state', '!=', 'draft')]}"/>
+                       <field name="tgl_penjualan" attrs="{'readonly' : [('state', '!=', 'draft')]}"/>
+                       <field name="total_bayar" attrs="{'readonly' : [('state', '!=', 'draft')]}"/>
+                    </group>
+
+                    <group name="daftarbarang" string="Daftar Barang">
+                        <field name="detailpenjualan_ids" attrs="{'readonly' : [('state', '!=', 'draft')]}">
+                            <tree editable= 'bottom'>
+                                <field name="barang_id"/>
+                                 <field name="harga_satuan"/>
+                                <field name="qty"/>
+                                <field name="subtotal" sum="Total"/>
+                            </tree>
+                        </field>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- agnesbutik14.penjualan action window -->
+    <record id="agnesbutik14_penjualan_action" model="ir.actions.act_window">
+        <field name="name">Penjualan</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">agnesbutik14.penjualan</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- This Menu Item must have a parent and an action -->
+    <menuitem id="penjualan_view_menu_act" 
+              name="Penjualan" 
+              parent="agnesbutik14_transaksi_menu_categ" 
+              action="agnesbutik14_penjualan_action" 
+              sequence="10"/>
+
+</odoo>

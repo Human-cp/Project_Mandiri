@@ -1,0 +1,55 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    
+    <!-- agnesbutik14.karyawan tree view -->
+    <record id="agnesbutik14_karyawan_view_tree" model="ir.ui.view">
+        <field name="name">agnesbutik14.karyawan.view.tree</field>
+        <field name="model">agnesbutik14.karyawan</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="id_karyawan"/>
+               <field name="name"/>
+               <field name="alamat"/>
+               <field name="tgl_lahir"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- agnesbutik14.karyawan form view -->
+    <record id="agnesbutik14_karyawan_view_form" model="ir.ui.view">
+        <field name="name">agnesbutik14.karyawan.view.form</field>
+        <field name="model">agnesbutik14.karyawan</field>
+        <field name="arch" type="xml">
+            <form string="Nama">
+                <sheet>
+                    <group name="nama" string=" ">
+                        <field name="id_karyawan"/>
+                        <field name="name"/>
+                    </group>
+                    <group name="data" string=" ">
+                        <field name="alamat"/>
+                        <field name="tgl_lahir"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+
+    <!-- agnesbutik14_karyawan action window -->
+    <record id="agnesbutik14_karyawan_action" model="ir.actions.act_window">
+        <field name="name">Karyawan</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">agnesbutik14.karyawan</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- This Menu Item must have a parent and an action -->
+    <menuitem id="agnesbutik14_karyawan_menu_act" 
+              name="Karyawan" 
+              parent="agnesbutik14_karyawan_menu_categ" 
+              action="agnesbutik14_karyawan_action" 
+              sequence="10"/>
+
+
+</odoo>
