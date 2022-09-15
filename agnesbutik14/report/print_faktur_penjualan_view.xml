@@ -8,8 +8,9 @@
                     <h1>FAKTUR PENJUALAN</h1>
                     <t t-foreach="docs" t-as="d">
                         <div class="row">
-                            <div class="col-4">Kode Order    :</div>
-                            <div class="col-8"><span t-field="d.name"/></div>
+                            
+                            <div class="col-4"><br/>Kode Order    :</div>
+                            <div class="col-8"><br/><span t-field="d.name"/></div>
                         </div>
                         <div class="row">
                             <div class="col-4">Nama        :</div>

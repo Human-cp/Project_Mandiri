@@ -26,13 +26,13 @@
                                     <div class="o_kanban_bottom">
                                         <ul>
                                             <li>
-                                                <span>Harga Jual : <t t-esc="record.harga_jual.value" string="Harga Jual : "/></span>
+                                                <span>Harga : <t t-esc="record.harga_jual.value" string="Harga Jual : "/></span>
                                             </li>
                                             <li>
                                                 <span>Stock : <t t-esc="record.stock.value"/></span>
                                             </li>
                                             <li>
-                                                <span>Kelompok Barang : <t t-esc="record.kelompokbarang_id.value"/></span>
+                                                <span>Kategori: <t t-esc="record.kelompokbarang_id.value"/></span>
                                             </li>
                                         </ul>
                                           
